@@ -10,6 +10,20 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+// 1. write employee class and export module
+// 2. extend employee class (engineer, manager, intern) and export modules
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
