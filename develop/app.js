@@ -10,7 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-// 1. write employee class and export module
+// 1. write employee class and export module (DONE)
 // 2. extend employee class (engineer, manager, intern) and export modules
 
 
