@@ -12,43 +12,110 @@ const render = require("./lib/htmlRenderer");
 
 const dTeamArr = [];
 
-const mQuestions = [
-
-    // name
-    // id
-    // email
-    // office number
-];
-
-const eQuestions = [
-    // name
-    // id
-    // email
-    // github
-];
-
-const iQuestions = [
-    // name
-    // id
-    // email
-    // school
-];
-
 // 1. write employee class and export module (DONE)
 // 2. extend employee class (engineer, manager, intern) and export modules (DONE)
 // 3. create empty array for development team to be stored that will later be passed through when it is ttime to render to html.(DONE)
 // 4. write prompt to create Mangaer (README notes development team consists of manager AND THEN any number of engineers and interns).
 
+const mQuestions = [
 
+    // MANAGER NAME
+    {
+        type: "input",
+        message: "Enter your name",
+        name: "name"
+    },
+    // ID
+    {
+        type: "input",
+        message: "Enter your employee id",
+        name: "id"
+    },
+    // EMAIL
+    {
+        type: "input",
+        message: "Enter your email",
+        name: "email"
+    },
+    // OFFICE NUMBER
+    {
+        type: "input",
+        message: "Enter your office number",
+        name: "officeNumber"
+    },
+];
 
+const eQuestions = [
+    // ENGINEER NAME
+    {
+        type: "input",
+        message: "Enter your name",
+        name: "name"
+    },
+    // ID
+    {
+        type: "input",
+        message: "Enter your employee id",
+        name: "id"
+    },
+    // EMAIL
+    {
+        type: "input",
+        message: "Enter your email",
+        name: "email"
+    },
+    // GITHUB
+    {
+        type: "input",
+        message: "Enter your github username",
+        name: "github"
+    }
+];
 
+const iQuestions = [
+    // INTERN NAME
+    {
+        type: "input",
+        message: "Enter your name",
+        name: "name"
+    },
+    // ID
+    {
+        type: "input",
+        message: "Enter your employee id",
+        name: "id"
+    },
+    // EMAIL
+    {
+        type: "input",
+        message: "Enter your email",
+        name: "email"
+    },
+    // SCHOOL
+    {
+        type: "input",
+        message: "Enter where you went to school",
+        name: "school"
+    }
+];
 
+function teamManager() {
+    inquirer.prompt(mQuestions).then((input) => {
 
+    });
+}
 
+function addEngineer() {
+    inquirer.prompt(eQuestions).then((input) => {
 
+    });
+}
 
+function addIntern() {
+    inquirer.prompt(iQuestions).then((input) => {
 
-
+    });
+}
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
