@@ -99,26 +99,107 @@ const iQuestions = [
     }
 ];
 
+const selectQuestions = [
+    // MEMBER SELECT
+    {
+        type: "list",
+        message: "Select a new member for your team",
+        name: "member",
+        choices: [
+            "Engineer",
+            "Intern",
+            "My team is complete"
+        ]
+    }
+]
+
 function teamManager() {
     inquirer.prompt(mQuestions).then((input) => {
-
+        const manager = new Manager(
+            input.name,
+            input.id,
+            input.email,
+            input.officeNumber
+        );
+        dTeamArr.push(manager);
+        console.log(`----------------------\n`);
+        console.log(`${input.name} added to team. \n`);
+        console.log(`----------------------\n`);
+        addMember();
+    }).catch((err) => {
+        throw err;
     });
 }
 
 function addEngineer() {
     inquirer.prompt(eQuestions).then((input) => {
-
+        const engineer = new Engineer(
+            input.name,
+            input.id,
+            input.email,
+            input.github
+        );
+        dTeamArr.push(engineer);
+        console.log(`----------------------\n`);
+        console.log(`${input.name} added to team. \n`);
+        console.log(`----------------------\n`);
+        addMember();
+    }).catch((err) => {
+        throw err;
     });
 }
 
 function addIntern() {
     inquirer.prompt(iQuestions).then((input) => {
-
+        const intern = new Intern(
+            input.name,
+            input.id,
+            input.email,
+            input.school
+        );
+        dTeamArr.push(intern);
+        console.log(`----------------------\n`);
+        console.log(`${input.name} added to team. \n`);
+        console.log(`----------------------\n`);
+        addMember();
+    }).catch((err) => {
+        throw err;
     });
 }
 
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
+function addMember() {
+    inquirer.prompt(selectQuestions).then(({ member }) => {
+        if (member === "Engineer") {
+            addEngineer();
+        } else if (member === "Intern") {
+            addIntern();
+        } else {
+            generateTeam();
+        }
+    }).catch((err) => {
+        throw err;
+    });
+}
+
+// check if the `output` folder exists and create it if it does not.
+
+function generateTeam() {
+    // fs.existsSync returns true if path exists, and false otherwise
+    // set if statement so if output directory DOES NOT exist, then create folder using fs.mkdirsync
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR);
+    }
+    //   then write file using outputPath and render development team array to html
+    fs.writeFileSync(outputPath, render(dTeamArr), "utf-8");
+    console.log(`----------------------\n`);
+    console.log(`TEAM GENERATED \n`);
+    console.log(`----------------------\n`);
+}
+
+teamManager();
+
+// Write code to use inquirer to gather information about the development team members, (DONE)
+// and to create objects for each team member (using the correct classes as blueprints!) (DONE)
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
