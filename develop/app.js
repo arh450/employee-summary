@@ -10,9 +10,34 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-// 1. write employee class and export module (DONE)
-// 2. extend employee class (engineer, manager, intern) and export modules
+const dTeamArr = [];
 
+const mQuestions = [
+
+    // name
+    // id
+    // email
+    // office number
+];
+
+const eQuestions = [
+    // name
+    // id
+    // email
+    // github
+];
+
+const iQuestions = [
+    // name
+    // id
+    // email
+    // school
+];
+
+// 1. write employee class and export module (DONE)
+// 2. extend employee class (engineer, manager, intern) and export modules (DONE)
+// 3. create empty array for development team to be stored that will later be passed through when it is ttime to render to html.(DONE)
+// 4. write prompt to create Mangaer (README notes development team consists of manager AND THEN any number of engineers and interns).
 
 
 
