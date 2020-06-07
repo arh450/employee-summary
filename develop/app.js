@@ -19,7 +19,14 @@ const mQuestions = [
     {
         type: "input",
         message: "Enter your name",
-        name: "name"
+        name: "name",
+        validate: (input) => {
+            if (input !== "") {
+                return true;
+            } else {
+                return ("Please enter a valid name");
+            }
+        }
     },
     // ID
     {
@@ -127,7 +134,7 @@ function teamManager() {
         console.log(`----------------------\n`);
         addMember();
     }).catch((err) => {
-        throw err;
+        throw (err);
     });
 }
 
@@ -146,7 +153,7 @@ function addEngineer() {
         console.log(`----------------------\n`);
         addMember();
     }).catch((err) => {
-        throw err;
+        throw (err);
     });
 }
 
@@ -165,7 +172,7 @@ function addIntern() {
         console.log(`----------------------\n`);
         addMember();
     }).catch((err) => {
-        throw err;
+        throw (err);
     });
 }
 
@@ -180,7 +187,7 @@ function addMember() {
             generateTeam();
         }
     }).catch((err) => {
-        throw err;
+        throw (err);
     });
 }
 
