@@ -12,11 +12,7 @@ const render = require("./lib/htmlRenderer");
 
 const dTeamArr = [];
 
-// 1. write employee class and export module (DONE)
-// 2. extend employee class (engineer, manager, intern) and export modules (DONE)
-// 3. create empty array for development team to be stored that will later be passed through when it is ttime to render to html.(DONE)
-// 4. write prompt to create Mangaer (README notes development team consists of manager AND THEN any number of engineers and interns).
-
+// MANAGER QUESTIONS
 const mQuestions = [
 
     // MANAGER NAME
@@ -45,6 +41,7 @@ const mQuestions = [
     },
 ];
 
+// ENGINEER QUESTIONS
 const eQuestions = [
     // ENGINEER NAME
     {
@@ -72,6 +69,7 @@ const eQuestions = [
     }
 ];
 
+// INTERN QUESTIONS
 const iQuestions = [
     // INTERN NAME
     {
@@ -99,6 +97,7 @@ const iQuestions = [
     }
 ];
 
+// SELECT QUESTIONS
 const selectQuestions = [
     // MEMBER SELECT
     {
@@ -113,6 +112,7 @@ const selectQuestions = [
     }
 ]
 
+// Function that prompts user Manager questions and then pushes input into development team array and then prompts user to add another team member.
 function teamManager() {
     inquirer.prompt(mQuestions).then((input) => {
         const manager = new Manager(
@@ -131,6 +131,7 @@ function teamManager() {
     });
 }
 
+// Function that prompts user Engineer questions and then pushes input into development team array and then prompts user to add another team member.
 function addEngineer() {
     inquirer.prompt(eQuestions).then((input) => {
         const engineer = new Engineer(
@@ -149,6 +150,7 @@ function addEngineer() {
     });
 }
 
+// Function that prompts user Intern questions and then pushes input into development team array and then prompts user to add another team member.
 function addIntern() {
     inquirer.prompt(iQuestions).then((input) => {
         const intern = new Intern(
@@ -167,6 +169,7 @@ function addIntern() {
     });
 }
 
+// Function that prompts users questions to add engineer or intern team member, or allow user to generate team if user is content with current team
 function addMember() {
     inquirer.prompt(selectQuestions).then(({ member }) => {
         if (member === "Engineer") {
@@ -181,15 +184,11 @@ function addMember() {
     });
 }
 
-// check if the `output` folder exists and create it if it does not.
-
+// Function that checks if OUTPUT_DIR folder DOES NOT exist, and if true creates the OUTPUT_DIR, and then writes and renders data from development team array to team.html
 function generateTeam() {
-    // fs.existsSync returns true if path exists, and false otherwise
-    // set if statement so if output directory DOES NOT exist, then create folder using fs.mkdirsync
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR);
     }
-    //   then write file using outputPath and render development team array to html
     fs.writeFileSync(outputPath, render(dTeamArr), "utf-8");
     console.log(`----------------------\n`);
     console.log(`TEAM GENERATED \n`);
@@ -198,6 +197,13 @@ function generateTeam() {
 
 teamManager();
 
+// MY PSEUDO CODE
+// 1. write employee class and export module (DONE)
+// 2. extend employee class (engineer, manager, intern) and export modules (DONE)
+// 3. create empty array for development team to be stored that will later be passed through when it is time to render to html.(DONE)
+// 4. write prompt to create Manager (README notes development team consists of manager AND THEN any number of engineers and interns).
+
+// HW PROVIDED PSEUDO CODE
 // Write code to use inquirer to gather information about the development team members, (DONE)
 // and to create objects for each team member (using the correct classes as blueprints!) (DONE)
 
