@@ -225,8 +225,8 @@ const iQuestions = [
     }
 ];
 
-// SELECT QUESTIONS
-const selectQuestions = [
+// SELECT MENU
+const selectMenu = [
     // MEMBER SELECT
     {
         type: "list",
@@ -297,9 +297,9 @@ function addIntern() {
     });
 }
 
-// Function that prompts users questions to add engineer or intern team member, or allow user to generate team if user is content with current team
+// Function that prompts users to add engineer or intern team member, or allow user to generate team if user is content with current team
 function addMember() {
-    inquirer.prompt(selectQuestions).then(({ member }) => {
+    inquirer.prompt(selectMenu).then(({ member }) => {
         if (member === "Engineer") {
             addEngineer();
         } else if (member === "Intern") {
@@ -337,7 +337,7 @@ teamManager();
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
+// generate and return a block of HTML including templated div for each employee!
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
