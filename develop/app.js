@@ -32,7 +32,19 @@ const mQuestions = [
     {
         type: "input",
         message: "Enter your employee id",
-        name: "id"
+        name: "id",
+        validate: (input) => {
+
+            // CITED: https://stackoverflow.com/questions/18042133/check-if-input-is-number-or-letter-javascript
+            // isNaN() function is used to determine if value is NaN or not
+            // if input is not-not a number (if input is a number) return true, else (not a valid number) "Please enter a valid number".
+
+            if (!isNaN(input)) {
+                return true;
+            } else {
+                return ("Please enter a valid number");
+            }
+        }
     },
     // EMAIL
     {
@@ -54,13 +66,32 @@ const eQuestions = [
     {
         type: "input",
         message: "Enter your name",
-        name: "name"
+        name: "name",
+        validate: (input) => {
+            if (input !== "") {
+                return true;
+            } else {
+                return ("Please enter a valid name");
+            }
+        }
     },
     // ID
     {
         type: "input",
         message: "Enter your employee id",
-        name: "id"
+        name: "id",
+        validate: (input) => {
+
+            // CITED: https://stackoverflow.com/questions/18042133/check-if-input-is-number-or-letter-javascript
+            // isNaN() function is used to determine if value is NaN or not
+            // if input is not-not a number (if input is a number) return true, else (not a valid number) "Please enter a valid number".
+
+            if (!isNaN(input)) {
+                return true;
+            } else {
+                return ("Please enter a valid number");
+            }
+        }
     },
     // EMAIL
     {
@@ -82,13 +113,32 @@ const iQuestions = [
     {
         type: "input",
         message: "Enter your name",
-        name: "name"
+        name: "name",
+        validate: (input) => {
+            if (input !== "") {
+                return true;
+            } else {
+                return ("Please enter a valid name");
+            }
+        }
     },
     // ID
     {
         type: "input",
         message: "Enter your employee id",
-        name: "id"
+        name: "id",
+        validate: (input) => {
+
+            // CITED: https://stackoverflow.com/questions/18042133/check-if-input-is-number-or-letter-javascript
+            // isNaN() function is used to determine if value is NaN or not
+            // if input is not-not a number (if input is a number) return true, else (not a valid number) "Please enter a valid number".
+
+            if (!isNaN(input)) {
+                return true;
+            } else {
+                return ("Please enter a valid number");
+            }
+        }
     },
     // EMAIL
     {
