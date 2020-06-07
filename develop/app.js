@@ -50,13 +50,40 @@ const mQuestions = [
     {
         type: "input",
         message: "Enter your email",
-        name: "email"
+        name: "email",
+        validate: (input) => {
+
+            // CITED: https://stackoverflow.com/questions/7635533/validate-email-address-textbox-using-javascript
+            // This validation uses an email Regex and the test() method to match whether the user's input is a valid email (hence vailEmail variable). The test() method will return either true or false.
+            // If user's email input is false it will return "please enter a valid email address". 
+
+            const validEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (validEmail.test(input) == false) {
+                return ("Please enter a valid email address");
+
+            } else {
+                return true;
+            }
+
+        }
     },
     // OFFICE NUMBER
     {
         type: "input",
         message: "Enter your office number",
-        name: "officeNumber"
+        name: "officeNumber",
+        validate: (input) => {
+
+            // CITED: https://stackoverflow.com/questions/18042133/check-if-input-is-number-or-letter-javascript
+            // isNaN() function is used to determine if value is NaN or not
+            // if input is not-not a number (if input is a number) return true, else (not a valid number) "Please enter a valid number".
+
+            if (!isNaN(input)) {
+                return true;
+            } else {
+                return ("Please enter a valid number");
+            }
+        }
     },
 ];
 
@@ -97,13 +124,35 @@ const eQuestions = [
     {
         type: "input",
         message: "Enter your email",
-        name: "email"
+        name: "email",
+        validate: (input) => {
+
+            // CITED: https://stackoverflow.com/questions/7635533/validate-email-address-textbox-using-javascript
+            // This validation uses an email Regex and the test() method to match whether the user's input is a valid email (hence vailEmail variable). The test() method will return either true or false.
+            // If user's email input is false it will return "please enter a valid email address". 
+
+            const validEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (validEmail.test(input) == false) {
+                return ("Please enter a valid email address");
+
+            } else {
+                return true;
+            }
+
+        }
     },
     // GITHUB
     {
         type: "input",
         message: "Enter your github username",
-        name: "github"
+        name: "github",
+        validate: (input) => {
+            if (input !== "") {
+                return true;
+            } else {
+                return ("Please enter a valid github username");
+            }
+        }
     }
 ];
 
@@ -144,13 +193,35 @@ const iQuestions = [
     {
         type: "input",
         message: "Enter your email",
-        name: "email"
+        name: "email",
+        validate: (input) => {
+
+            // CITED: https://stackoverflow.com/questions/7635533/validate-email-address-textbox-using-javascript
+            // This validation uses an email Regex and the test() method to match whether the user's input is a valid email (hence vailEmail variable). The test() method will return either true or false.
+            // If user's email input is false it will return "please enter a valid email address". 
+
+            const validEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (validEmail.test(input) == false) {
+                return ("Please enter a valid email address");
+
+            } else {
+                return true;
+            }
+
+        }
     },
     // SCHOOL
     {
         type: "input",
         message: "Enter where you went to school",
-        name: "school"
+        name: "school",
+        validate: (input) => {
+            if (input !== "") {
+                return true;
+            } else {
+                return ("Please enter a valid school name");
+            }
+        }
     }
 ];
 
